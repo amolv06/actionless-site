@@ -47,34 +47,34 @@
 <p>Note that with the -z flag pgn-extract searches for positions in a color-blind manner. It will output games where either side has the specified material, meaning it doesn&rsquo;t differentiate whether white or black has the knight and bishop versus the rook and pawn. There is also a -y flag, which will only look for positions where white has the material represented by the first sequence of characters and black has the second.</p>
 <p>When specifying material you may append certain symbols to a character that specifies a piece, giving it additional meaning:</p>
 <table>
-<thead>
-<tr>
-<th>Character</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>Zero or more of that piece</td>
-</tr>
-<tr>
-<td>+</td>
-<td>One or more of that piece</td>
-</tr>
-<tr>
-<td>d</td>
-<td>Exactly d occurrences of that piece</td>
-</tr>
-<tr>
-<td>d+</td>
-<td>d or more occurrences of that piece</td>
-</tr>
-<tr>
-<td>d-</td>
-<td>d or fewer occurrences of that piece</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Character</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>*</td>
+          <td>Zero or more of that piece</td>
+      </tr>
+      <tr>
+          <td>+</td>
+          <td>One or more of that piece</td>
+      </tr>
+      <tr>
+          <td>d</td>
+          <td>Exactly d occurrences of that piece</td>
+      </tr>
+      <tr>
+          <td>d+</td>
+          <td>d or more occurrences of that piece</td>
+      </tr>
+      <tr>
+          <td>d-</td>
+          <td>d or fewer occurrences of that piece</td>
+      </tr>
+  </tbody>
 </table>
 <p>pgn-extract conveniently offers the character &rsquo;l&rsquo; as a way to represent a minor piece, matching either a bishop or a knight. We can now create the file to filter games with more than eight minor pieces. I&rsquo;ll call my file <code>filter</code>, but you can name yours whatever you like. Here&rsquo;s the content of the file:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>q*r*p*l4 q*r*p*l5+
@@ -120,42 +120,42 @@ width=600 height=397 frameborder=0></iframe>
 </span></span></code></pre></div><p>This would look for positions where <code>1. e4 c5</code> has been played from the starting position.</p>
 <p>pgn-extract offers an even more versatile option for finding positions with the pseudotag FENPattern, which allows the use of metacharacters in the FEN string to fuzzy match a board. When using FENPattern, you only input the part of the FEN string that specifies the board position and omit additional details. The available metacharacters are</p>
 <table>
-<thead>
-<tr>
-<th>Character</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>Match any square, occupied or unoccupied.</td>
-</tr>
-<tr>
-<td>!</td>
-<td>Match any occupied square.</td>
-</tr>
-<tr>
-<td>A</td>
-<td>Match a square occupied by a white piece.</td>
-</tr>
-<tr>
-<td>a</td>
-<td>Match a square occupied by a black piece.</td>
-</tr>
-<tr>
-<td>*</td>
-<td>Match zero or more square, occupied or unoccupied</td>
-</tr>
-<tr>
-<td>[xyz]</td>
-<td>Match any of the characters represented by x, y, or z</td>
-</tr>
-<tr>
-<td>[^xyz]</td>
-<td>Match any character not represented by x, y, or z</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Character</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>?</td>
+          <td>Match any square, occupied or unoccupied.</td>
+      </tr>
+      <tr>
+          <td>!</td>
+          <td>Match any occupied square.</td>
+      </tr>
+      <tr>
+          <td>A</td>
+          <td>Match a square occupied by a white piece.</td>
+      </tr>
+      <tr>
+          <td>a</td>
+          <td>Match a square occupied by a black piece.</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>Match zero or more square, occupied or unoccupied</td>
+      </tr>
+      <tr>
+          <td>[xyz]</td>
+          <td>Match any of the characters represented by x, y, or z</td>
+      </tr>
+      <tr>
+          <td>[^xyz]</td>
+          <td>Match any character not represented by x, y, or z</td>
+      </tr>
+  </tbody>
 </table>
 <p>We will use use FENPattern pseudotag to search the Lichess database for the skeleton of the Anastasia mate given in the diagram above, with the black king on h7, a black pawn on g7, a white knight on e7 and a white rook or queen on h1-h5. We do so by adding the content below to the file that defines out filter, which I&rsquo;ve called filter2. Note that when using the -t flag, generally multiple instances of the same tag (or pseudotag in our case) are OR-ed together. Different tags are AND-ed together.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FENPattern &#34;*/*N?pk/*1/*[QR]/*/*/*/*&#34;
@@ -171,46 +171,46 @@ width=600 height=397 frameborder=0></iframe>
 <p>To find games where advanced players engage in rook and pawn endings, we will once again use the -z and -t flags, though in a slightly different manner than before. Additionally, we will employ the &ndash;minmoves flag to ensure that game have a minimum length, increasing the likelihood of finding more interesting endgames.</p>
 <p>Previously, we discussed how the -z flag allows us to use special metacharacters appended to piece-representing characters which specify the number of such pieces we expect to find. While the previous metacharacters specified something about the absolute number of pieces a side should have, there are additional metacharacters that allow us to specify the number of pieces in relation to how many pieces the other side has.</p>
 <table>
-<thead>
-<tr>
-<th>Character</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>The number of these pieces must be the same as the opponent</td>
-</tr>
-<tr>
-<td>#</td>
-<td>The number of these pieces bust be different from the opponent&rsquo;s</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>The number of these pieces must be more than the opponent has</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>The number of these pieces must be less than the opponent has</td>
-</tr>
-<tr>
-<td>d&gt;</td>
-<td>The number of these pieces must be at least d more than the opponent&rsquo;s</td>
-</tr>
-<tr>
-<td>d&lt;</td>
-<td>The number of these pieces must be at least d less than the opponent&rsquo;s</td>
-</tr>
-<tr>
-<td>d&gt;=</td>
-<td>The number of these pieces must be exactly d more than the opponent&rsquo;s</td>
-</tr>
-<tr>
-<td>d&lt;=</td>
-<td>The number of these pieces must be exactly d less than the opponent&rsquo;s</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Character</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>=</td>
+          <td>The number of these pieces must be the same as the opponent</td>
+      </tr>
+      <tr>
+          <td>#</td>
+          <td>The number of these pieces bust be different from the opponent&rsquo;s</td>
+      </tr>
+      <tr>
+          <td>&gt;</td>
+          <td>The number of these pieces must be more than the opponent has</td>
+      </tr>
+      <tr>
+          <td>&lt;</td>
+          <td>The number of these pieces must be less than the opponent has</td>
+      </tr>
+      <tr>
+          <td>d&gt;</td>
+          <td>The number of these pieces must be at least d more than the opponent&rsquo;s</td>
+      </tr>
+      <tr>
+          <td>d&lt;</td>
+          <td>The number of these pieces must be at least d less than the opponent&rsquo;s</td>
+      </tr>
+      <tr>
+          <td>d&gt;=</td>
+          <td>The number of these pieces must be exactly d more than the opponent&rsquo;s</td>
+      </tr>
+      <tr>
+          <td>d&lt;=</td>
+          <td>The number of these pieces must be exactly d less than the opponent&rsquo;s</td>
+      </tr>
+  </tbody>
 </table>
 <p>To keep things interesting, we will look for rook and pawn endgames with an imbalanced number of pawns, where each side has at least one pawn (and both sides have a rook). We will pass filter3 to the -z flag, given below.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>rp+ rp&gt;
@@ -253,7 +253,8 @@ width=600 height=397 frameborder=0></iframe>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <script src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
 <script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
-
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
 <hr>
 
 Please send all comments to <a href= "malito:amolvaidya.signup@gmail.com">amolvaidya.signup@gmail.com</a> or <a href="https://fosstodon.org/@BigEatie/">Mastodon</a>.

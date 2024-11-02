@@ -6,14 +6,21 @@
     <description>Recent content in Chess on BigEatie&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://bigeatie.com/tags/chess/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Does the Integral Power Law Hold for $x^{-1}$</title>
+      <link>https://bigeatie.com/posts/integration-power-law/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 -0500</pubDate>
+      <guid>https://bigeatie.com/posts/integration-power-law/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Advanced Filtering of Chess Databases with pgn-extract</title>
       <link>https://bigeatie.com/posts/pgn-extract/</link>
       <pubDate>Thu, 29 Aug 2024 00:00:00 -0500</pubDate>
       <guid>https://bigeatie.com/posts/pgn-extract/</guid>
-      <description>Introduction Serious Chess players often rely on databases containing millions of games to enhance their studies. These databases are invaluable for studying openings, where a user can enter an exact sequence of moves to reach the position they want to analyze. Chess databases can filter based on such opening sequences with ease. However, when it comes to filtering based on criteria outside of the opening, such as games where there are more than eight minor pieces on the board, games that end in Anastasia&amp;rsquo;s mate, or games where advanced players tackle difficult rook and pawn endings your typical database falls short without external tools.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Serious Chess players often rely on databases containing millions of games to enhance their studies. These databases are invaluable for studying openings, where a user can enter an exact sequence of moves to reach the position they want to analyze. Chess databases can filter based on such opening sequences with ease. However, when it comes to filtering based on criteria outside of the opening, such as games where there are more than eight minor pieces on the board, games that end in Anastasia&amp;rsquo;s mate, or games where advanced players tackle difficult rook and pawn endings your typical database falls short without external tools.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
