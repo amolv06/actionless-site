@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Method of Images | BigEatie&#39;s Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">The Method of Images</span></h1>
+
+<h2 class="date">2024/09/08</h2>
+</div>
+
+<main>
+<h2 id="introduction">Introduction</h2>
+<p>The method of images is almost a real life mathematical cheat code. Imagine being able to solve what happens due to some intricate arrangement of charges on a conducting surface, but pretending as though it&rsquo;s a single point charge. When I first saw this, I was quite stunned. It seems absurd that to solve one problem you solve, more or less, a completely separate problem. However the clever application of a mathematical principle ensures that the solutions to the two problems are the same. Instead of solving a hard physics problem it allows you to solve a much easier, barely related problem, and then insist that the solution to the two is the same.</p>
+<h2 id="the-method-of-images-without-the-math">The Method of Images Without the Math</h2>
+<p>Imagine placing two electrons near each other &ndash; they would repel one another. This happens because both electrons carry an <strong>electric charge</strong>, and charged particles exert a force on each other. Electric charge comes in two varieties: negative and positive. Like charges repel, while opposites attract.</p>
+<p>We can think of a charged particle as creating a force field that permeates all space, called the <strong>electric field</strong>, which acts on other charged particles. When a secondary charge is placed within this field, it reacts accordingly &ndash; repelling if the charges are the same and attracting if they are opposite. But when analyzing the second particle&rsquo;s behavior, we don&rsquo;t need to know anything about how the electric field was created. Everything we need to understand the particle&rsquo;s behavior is contained in the electric field itself. This allows us to focus solely on the electric field and the second particle, ignoring the first particle entirely.</p>
+<h2 id="a-brief-review">A Brief Review</h2>
+<p>This post assumes you&rsquo;re familiar with basic vector calculus and have taken an introductory course in electromagnetism, however I&rsquo;ll still review some foundational concepts. I&rsquo;ll introduce these concepts as fact, without delving into their justification, though they are theoretically and experimentally well established.</p>
+<h3 id="coulomb-s-law">Coulomb&rsquo;s Law</h3>
+<p>We begin by imagining point particles that possess a property known as electric charge. The value of this electric charge can range from \((-\infty, \infty)\), and it is typically measured in Coulombs (C). In electrostatics the elementary unit of charge has a charge of \(1.602 \times 10^{-19}\textrm{C}\). This is the magnitude of the charge of the electron. <strong>Coulomb&rsquo;s Law</strong> states that if the two particles have charge of \(q_1\) and \(q_2\), and are separated by a distance of \(r\), then the force between them is</p>
+<p>\[\vec{F} = \frac{q_1 q_2}{4 \pi \epsilon_0 r^2} \hat{r}.\]</p>
+<p>Note that the arrow above the F and the hat above the r indicates this is a vector equation. The force has both a magnitude and a direction: if both charges have the same sign then the force on each is repulsive, meaning that the charges will be pushed away from each other. If the charges have opposite signs the force is attractive.</p>
+<p>You might also notice the factor \(\frac{1}{4 \pi \epsilon_0}\). Its form is the result of historical convention, but numerically it is approximately \(8.988 \times 10^9 \; \textrm{N} \cdot \textrm{m}^2 \cdot \textrm{C}^{-2}\). A little dimensional analysis shows that if the charges are given in Coulomb&rsquo;s and distances in meters then applying Coulombs law will give us forces in the familiar unit of Newtons.</p>
+<h3 id="the-electric-field">The Electric Field</h3>
+<p>Based on Coulomb&rsquo;s law we can imagine that each charge induces a force-field permeating all of space. If we</p>
+<center>
+<script type="text/tikz">
+  \begin{tikzpicture}
+\draw[fill=gray!20] (-8,-0.5) rectangle (8,0.5);
+   \node at (0,0.75) {Conducting Plate};
+
+% Positive Charges on one side of the plate
+\foreach \x in {-2.5,-1.5,-0.5,0.5,1.5,2.5} {
+    \node[scale=1.5, red] at (\x, 0.3) {$+$};
+}
+
+% Negative Charges on the opposite side of the plate
+\foreach \x in {-2.5,-1.5,-0.5,0.5,1.5,2.5} {
+    \node[scale=1.5, blue] at (\x, -0.3) {$-$};
+}
+
+% Electric Field lines (E field pointing left to right)
+\foreach \x in {-2, -1.5, -1, 1, 1.5, 2} {
+    \draw[->, thick] (\x, -4) -- (\x, 4) node[pos=0.9, right] {$\vec{E}$};
+}
+
+% Label of E field
+\node at (4, 2) {$\vec{E}$ (External Electric Field)};
+\end{tikzpicture}
+</script>
+</center>
+<script type="text/tikz">
+  \begin{tikzpicture}
+\draw (0,200) circle (1in);
+\line
+\end{tikzpicture}
+</script>
+
+</main>
+
+  <footer>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<hr>
+
+Please send all comments to <a href= "malito:amolvaidya.signup@gmail.com">amolvaidya.signup@gmail.com</a> or <a href="https://fosstodon.org/@BigEatie/">Mastodon</a>.
+
+<style>
+  .craftering {
+	  margin: auto;
+	  width: 50%;
+	  text-align: center;}
+</style>
+
+<div class="craftering">
+  <a href="https://craftering.systemcrafters.net/@bigeatie/previous">←</a>  
+  <a href="https://craftering.systemcrafters.net/">craftering</a>  
+  <a href="https://craftering.systemcrafters.net/@bigeatie/next">→</a>
+</div>
+
+  
+  </footer>
+  </body>
+</html>
+
